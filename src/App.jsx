@@ -1,6 +1,10 @@
-import ListGroup from './components/ListGroup';
-import React, { useState } from 'react';
 import './App.css';
+import ListGroup from './components/ListGroup';
+import { Home } from './components/Home';
+import { DeityPage } from './components/DeityPage';
+import React, { useState } from 'react';
+
+import deityData from './data/deityData';
 
 function App() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -16,15 +20,18 @@ function App() {
   };
 
   return (
-    <div style={{ backgroundColor: backgroundColor, minHeight: '100vh' }}>
-      <div className="content-container">
-        {selectedItem && (
-          <>
-            <h1>{selectedItem}</h1>
-            <p>Information about {selectedItem} goes here.</p>
-          </>
-        )}
-      </div>
+    <div>
+      {selectedItem ? (
+        <DeityPage
+          deityName={selectedItem}
+          title={deityData[selectedItem].title}
+          text={deityData[selectedItem].text}
+          images={deityData[selectedItem].images}
+          backgroundColor={deityData[selectedItem].color}
+        />
+      ) : (
+        <Home/>
+      )}
       <ListGroup onItemSelect={handleItemSelect} />
     </div>
   );
