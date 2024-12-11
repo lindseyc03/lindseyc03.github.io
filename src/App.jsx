@@ -1,10 +1,14 @@
-import ListGroup from './components/ListGroup';
-import React, { useState } from 'react';
-import './App.css';
+import "./App.css";
+import ListGroup from "./components/ListGroup";
+import { Home } from "./components/Home";
+import { DeityPage } from "./components/DeityPage";
+import React, { useState } from "react";
+
+import deityData from "./data/deityData";
 
 function App() {
   const [selectedItem, setSelectedItem] = useState(null);
-  const [backgroundColor, setBackgroundColor] = useState('#ffffff');
+  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
 
   const handleItemSelect = (item) => {
     setSelectedItem(item);
@@ -12,19 +16,22 @@ function App() {
   };
 
   const getRandomColor = () => {
-    return '#' + Math.floor(Math.random()*16777215).toString(16);
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
   };
 
   return (
-    <div style={{ backgroundColor: backgroundColor, minHeight: '100vh' }}>
-      <div className="content-container">
-        {selectedItem && (
-          <>
-            <h1>{selectedItem}</h1>
-            <p>Information about {selectedItem} goes here.</p>
-          </>
-        )}
-      </div>
+    <div className="app-container">
+      {selectedItem ? (
+        <DeityPage
+          deityName={selectedItem}
+          title={deityData[selectedItem].title}
+          text={deityData[selectedItem].text}
+          images={deityData[selectedItem].images}
+          backgroundColor={deityData[selectedItem].color}
+        />
+      ) : (
+        <Home />
+      )}
       <ListGroup onItemSelect={handleItemSelect} />
     </div>
   );
