@@ -11,12 +11,7 @@ function App() {
 
   const handleItemSelect = (item) => {
     setSelectedItem(item);
-    setBackgroundColor(getRandomColor());
-  };
-
-
-  const getRandomColor = () => {
-    return "#" + Math.floor(Math.random() * 16777215).toString(16);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

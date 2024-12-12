@@ -7,34 +7,6 @@ body {
   background-color: var(--bs-body-bg);      /* Optional: Use default background color */
 }
 
-.horizontal-list {
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  list-style-type: none;
-  margin: 0;
-  padding-bottom: 20px;
-}
-
-  .list-group-item {
-    margin: 0 10px;
-    padding: 10px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: var(--bs-body-font-family);
-  }
-
-  .list-group-item.active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-  }
-
   .image {
     width: 80%;      /* Ensures image doesn't exceed container width */
     height: 90px;    /* Prevents image from becoming too tall */
