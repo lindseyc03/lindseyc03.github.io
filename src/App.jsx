@@ -1,5 +1,4 @@
 import "./App.css";
-import ListGroup from "./components/ListGroup";
 import { Home } from "./components/Home";
 import { DeityPage } from "./components/DeityPage";
 import React, { useState } from "react";
@@ -15,12 +14,13 @@ function App() {
     setBackgroundColor(getRandomColor());
   };
 
+
   const getRandomColor = () => {
     return "#" + Math.floor(Math.random() * 16777215).toString(16);
   };
 
   return (
-    <div className="app-container">
+    <div>
       {selectedItem ? (
         <DeityPage
           deityName={selectedItem}
@@ -28,11 +28,13 @@ function App() {
           text={deityData[selectedItem].text}
           images={deityData[selectedItem].images}
           backgroundColor={deityData[selectedItem].color}
+          paragraphStyle={deityData[selectedItem].paragraphStyle}
+          spotifyTrackId={deityData[selectedItem].spotifyTrackId}
+          onItemSelect={handleItemSelect}
         />
       ) : (
-        <Home />
+        <Home onItemSelect={handleItemSelect} />
       )}
-      <ListGroup onItemSelect={handleItemSelect} />
     </div>
   );
 }
