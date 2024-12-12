@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import ListGroup from "./ListGroup";
-import deityData from '../data/deityData';
+import deityData from "../data/deityData";
+import { NavMenu } from "./NavigationMenu";
 
-export const Home = ({ onItemSelect }) => {
+export const Home = ({ onItemSelect, onNavigate }) => {
   return (
     <HomeContainer>
+      <NavMenu onNavigate={onNavigate} />
       <Section>
         <FadeInElement>
           <Title>The Orishas of Santería</Title>
@@ -126,7 +128,7 @@ const HomeContainer = styled.div`
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
@@ -207,5 +209,45 @@ const SpotifyContainer = styled.div`
   max-width: 700px;
   margin: 0 auto;
   padding: 1rem 0;
+`;
+
+// Add these styled components before BackToHomeButton
+const BackButton = styled.button`
+  position: fixed;
+  top: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--bs-body-font-family);
+  font-size: 1rem;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+`;
+
+const BackArrow = styled.span`
+  font-size: 1.2rem;
+  line-height: 1;
+`;
+
+// Now BackToHomeButton will work correctly
+const BackToHomeButton = styled(BackButton)`
+  right: 20px;
+  left: auto;
 `;
 export default Home;

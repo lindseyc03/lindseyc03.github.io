@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import { useInView } from "react-intersection-observer";
 import ListGroup from "./ListGroup";
-
+import { NavMenu } from "./NavigationMenu";
 export const DeityPage = ({
   deityName,
   title,
@@ -12,6 +13,7 @@ export const DeityPage = ({
   paragraphStyle,
   spotifyTrackId,
   onItemSelect,
+  onNavigate,
 }) => {
   // Function to scroll to top smoothly
   const scrollToTop = () => {
@@ -28,6 +30,7 @@ export const DeityPage = ({
 
   return (
     <DeityPageContainer $color={backgroundColor}>
+      <NavMenu onNavigate={onNavigate} />
       {/* Back Button */}
       <BackButton
         onClick={() => {

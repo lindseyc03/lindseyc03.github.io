@@ -1,13 +1,20 @@
 import "./App.css";
+import { HomePage } from "./components/HomePage";
 import { Home } from "./components/Home";
 import { DeityPage } from "./components/DeityPage";
 import React, { useState } from "react";
-
 import deityData from "./data/deityData";
+import { NavMenu } from "./components/NavigationMenu";
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
   const [selectedItem, setSelectedItem] = useState(null);
-  const [backgroundColor, setBackgroundColor] = useState("#ffffff");
+
+  const handleNavigation = (page) => {
+    setCurrentPage(page);
+    setSelectedItem(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleItemSelect = (item) => {
     setSelectedItem(item);
@@ -16,7 +23,13 @@ function App() {
 
   return (
     <div>
-      {selectedItem ? (
+      {currentPage === 'home' && (
+        <HomePage onNavigate={handleNavigation} />
+      )}
+      {currentPage === 'santeria' && !selectedItem && (
+        <Home onNavigate={handleNavigation} onItemSelect={handleItemSelect} />
+      )}
+      {currentPage === 'santeria' && selectedItem && (
         <DeityPage
           deityName={selectedItem}
           title={deityData[selectedItem].title}
@@ -26,9 +39,13 @@ function App() {
           paragraphStyle={deityData[selectedItem].paragraphStyle}
           spotifyTrackId={deityData[selectedItem].spotifyTrackId}
           onItemSelect={handleItemSelect}
+          onNavigate={handleNavigation}
         />
-      ) : (
-        <Home onItemSelect={handleItemSelect} />
+      )}
+      {currentPage === 'music' && (
+        <div>
+          Music Page
+        </div>
       )}
     </div>
   );
