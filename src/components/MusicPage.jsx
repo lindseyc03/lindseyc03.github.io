@@ -134,14 +134,16 @@ export const MusicPage = ({ onNavigate }) => {
             <ContentCard>
               <SectionTitle>Playlist of salsas, boogaloos, mambos and more that reference the Orishas</SectionTitle>
               <SpotifyContainer>
-                <iframe
-                  src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdwmD5Q7Gxah"
+              <iframe
+                src="https://open.spotify.com/embed/playlist/5tBaAh8pUGYYSjt7hKWdiF?utm_source=generator"
                   width="100%"
-                  height="380"
+                  height="352"
                   frameBorder="0"
-                  allow="encrypted-media"
-                  style={{ borderRadius: "12px" }}
-                />
+                  allowfullscreen=""
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  style={{borderRadius: "12px"}}
+                ></iframe>
               </SpotifyContainer>
             </ContentCard>
           </FadeInElement>
