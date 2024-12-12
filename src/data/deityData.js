@@ -9,7 +9,6 @@ export const deityData = {
       title: "Elegua - Lord of the Crossroads",
       images:["src/assets/orishaImages/eleguaOne.jpg", "src/assets/orishaImages/elegueTwo.jpg", "src/assets/orishaImages/eleguaThree.jpg","src/assets/orishaImages/eleguaFour.jpg"],
       paragraphStyle: {
-        fontFamily: "Segoe UI Symbol",
         fontSize: "1rem",
         color: "white",
         backgroundColor: "black",

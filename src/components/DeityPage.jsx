@@ -12,16 +12,41 @@ export const DeityPage = ({
   onItemSelect,
 }) => {
   return (
-    <DeityPageContainer $backgroundColor={backgroundColor}>
-      <ContentContainer>
-      <Title>{title}</Title>
-      {/* Main Image and Spotify Embed Row */}
-      <ImageAndSpotifyContainer>
-        {images && images.length > 0 && (
+    <DeityPageContainer>
+      {/* Title Section */}
+      <Section>
+        <Title>{title}</Title>
+      </Section>
+
+      {/* Main Image Section */}
+      {images && images.length > 0 && (
+        <Section>
           <MainImage src={images[0]} alt={`${deityName} - Main`} />
-        )}
-        {/* Spotify Embed */}
-        {spotifyTrackId && (
+        </Section>
+      )}
+
+      {/* Content Sections - Split paragraphs into separate sections */}
+      {text.map((paragraph, index) => (
+        <Section key={index}>
+          <ContentRow>
+            {index === 0 && images && images.length > 1 && (
+              <SideImage src={images[1]} alt={`${deityName} - 2`} />
+            )}
+            <TextContainer>
+              <Paragraph $style={paragraphStyle}>{paragraph}</Paragraph>
+            </TextContainer>
+            {index === 0 && images && images.length > 2 && (
+              <SideImage src={images[2]} alt={`${deityName} - 3`} />
+            )}
+          </ContentRow>
+        </Section>
+      ))}
+
+      {/* Spotify Section */}
+      {spotifyTrackId && (
+        <Section $height="50vh">
+          {" "}
+          {/* Half viewport height */}
           <SpotifyEmbedContainer>
             <iframe
               src={`https://open.spotify.com/embed/track/${spotifyTrackId}?utm_source=generator&theme=0`}
@@ -31,103 +56,90 @@ export const DeityPage = ({
               allow="encrypted-media"
             ></iframe>
           </SpotifyEmbedContainer>
-        )}
-      </ImageAndSpotifyContainer>
-
-      {text.map((paragraph, index) => (
-        <Paragraph key={index} $style={paragraphStyle}>
-          {paragraph}
-        </Paragraph>
-      ))}
-      {images && images.length > 1 && (
-        <ImageGallery>
-          {images.slice(1).map((image, index) => (
-            <GalleryImage
-              key={index}
-              src={image}
-              alt={`${deityName} - ${index + 2}`}
-            />
-          ))}
-        </ImageGallery>
+        </Section>
       )}
-      </ContentContainer>
-    {/* Add ListGroup at the bottom of DeityPage */}
-    <ListGroup onItemSelect={onItemSelect} />
+
+      {/* ListGroup Section */}
+      <Section $height="50vh">
+        {" "}
+        {/* Half viewport height */}
+        <ListGroup onItemSelect={onItemSelect} />
+      </Section>
     </DeityPageContainer>
   );
 };
+
 const DeityPageContainer = styled.div`
-  background-color: ${(props) => props.$backgroundColor};
-  width: 100vw;
-  min-height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background: radial-gradient(circle at center, #980000, black);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 `;
 
-const ContentContainer = styled.div`
+const Section = styled.section`
+  min-height: ${(props) => props.$height || "100vh"};
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  flex-grow: 1; /* Ensures this takes up available space */
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
   padding: 20px;
-  overflow: auto; /* Prevents overflow issues */
+  scroll-snap-align: start;
 `;
 
+// Update other styled components
 const Title = styled.h1`
-  color: black;
-  font-size: 56px;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: white; // Changed to white for better visibility on dark background
+  font-size: 72px; // Made larger for fullscreen section
   font-weight: 500;
+  font-family: var(--bs-body-font-family);
   line-height: 1.2;
-  margin-bottom: 10px;
-  align-items: center;
+  text-align: center;
 `;
 
 const MainImage = styled.img`
-  width: 10vw;
-  height: 10vw;
+  width: 30vw; // Made larger for fullscreen section
+  height: auto;
   object-fit: contain;
-  margin-bottom: 10px;
 `;
-const ImageAndSpotifyContainer = styled.div`
+
+const ContentRow = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px; /* Space between the row and the rest of the content */
+  width: 90%;
+  gap: 20px;
+  max-width: 1200px;
 `;
+
+const TextContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Paragraph = styled.p`
   margin-bottom: 15px;
   text-align: justify;
-  font-family: ${(props) => props.$style?.fontFamily || "inherit"};
-  font-size: ${(props) => props.$style?.fontSize || "1rem"};
-  color: ${(props) => props.$style?.color || "inherit"};
+  font-family: ${(props) =>
+    props.$style?.fontFamily || "var(--bs-body-font-family)"};
+  font-size: ${(props) => props.$style?.fontSize || "1.2rem"}; // Made larger
+  color: ${(props) => props.$style?.color || "white"}; // Changed to white
   background-color: ${(props) =>
     props.$style?.backgroundColor || "transparent"};
   padding: ${(props) => props.$style?.padding || "0"};
   border-radius: ${(props) => props.$style?.borderRadius || "0"};
-  width: 70%;
+  width: 100%;
+  line-height: 1.6;
 `;
 
-const ImageGallery = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 50px;
-  margin-top: 20px;
-`;
-
-const GalleryImage = styled.img`
-  width: 10vw;
+const SideImage = styled.img`
+  width: 15vw;
   height: auto;
+  object-fit: contain;
 `;
 
 const SpotifyEmbedContainer = styled.div`
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;

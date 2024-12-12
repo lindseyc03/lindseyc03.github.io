@@ -1,3 +1,12 @@
+body {
+  font-family: var(--bs-body-font-family);  /* This is the default font family in Bootstrap */
+  font-size: var(--bs-body-font-size);      /* Optional: Keep default font size */
+  font-weight: var(--bs-body-font-weight);  /* Optional: Keep default font weight */
+  line-height: var(--bs-body-line-height);  /* Optional: Keep default line height */
+  color: var(--bs-body-color);              /* Optional: Use default text color */
+  background-color: var(--bs-body-bg);      /* Optional: Use default background color */
+}
+
 .horizontal-list {
   display: flex;
   justify-content: center;
@@ -14,9 +23,10 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f0f0f0;
-    color: #333;
+    color: white;
     font-size: 16px;
     font-weight: bold;
+    font-family: var(--bs-body-font-family);
   }
 
   .list-group-item.active {
