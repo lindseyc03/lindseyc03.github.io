@@ -5,31 +5,30 @@ import { DeityPage } from "./components/DeityPage";
 import React, { useState } from "react";
 import deityData from "./data/deityData";
 import { NavMenu } from "./components/NavigationMenu";
+import { MusicPage } from "./components/MusicPage";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState("home");
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleNavigation = (page) => {
     setCurrentPage(page);
     setSelectedItem(null);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleItemSelect = (item) => {
     setSelectedItem(item);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <div>
-      {currentPage === 'home' && (
-        <HomePage onNavigate={handleNavigation} />
-      )}
-      {currentPage === 'santeria' && !selectedItem && (
+      {currentPage === "home" && <HomePage onNavigate={handleNavigation} />}
+      {currentPage === "santeria" && !selectedItem && (
         <Home onNavigate={handleNavigation} onItemSelect={handleItemSelect} />
       )}
-      {currentPage === 'santeria' && selectedItem && (
+      {currentPage === "santeria" && selectedItem && (
         <DeityPage
           deityName={selectedItem}
           title={deityData[selectedItem].title}
@@ -42,11 +41,7 @@ function App() {
           onNavigate={handleNavigation}
         />
       )}
-      {currentPage === 'music' && (
-        <div>
-          Music Page
-        </div>
-      )}
+      {currentPage === "music" && <MusicPage onNavigate={handleNavigation} />}
     </div>
   );
 }
