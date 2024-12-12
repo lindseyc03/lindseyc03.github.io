@@ -12,11 +12,30 @@ export const DeityPage = ({
   onItemSelect,
 }) => {
   return (
-    <DeityPageContainer>
+    <DeityPageContainer $color={backgroundColor}>
       {/* Title Section */}
       <Section>
         <Title>{title}</Title>
       </Section>
+
+      {/* Spotify Section */}
+      {spotifyTrackId && (
+        <Section>
+          <SpotifyEmbedContainer>
+            <SpotifyText>
+              Here is a snippet of a song dedicated to the Orisha while you
+              scroll:
+            </SpotifyText>
+            <iframe
+              src={`https://open.spotify.com/embed/track/${spotifyTrackId}?utm_source=generator&theme=0`}
+              width="300"
+              height="80"
+              frameBorder="0"
+              allow="encrypted-media"
+            ></iframe>
+          </SpotifyEmbedContainer>
+        </Section>
+      )}
 
       {/* Main Image Section */}
       {images && images.length > 0 && (
@@ -25,7 +44,7 @@ export const DeityPage = ({
         </Section>
       )}
 
-      {/* Content Sections - Split paragraphs into separate sections */}
+      {/* Content Sections */}
       {text.map((paragraph, index) => (
         <Section key={index}>
           <ContentRow>
@@ -42,27 +61,8 @@ export const DeityPage = ({
         </Section>
       ))}
 
-      {/* Spotify Section */}
-      {spotifyTrackId && (
-        <Section $height="50vh">
-          {" "}
-          {/* Half viewport height */}
-          <SpotifyEmbedContainer>
-            <iframe
-              src={`https://open.spotify.com/embed/track/${spotifyTrackId}?utm_source=generator&theme=0`}
-              width="300"
-              height="80"
-              frameBorder="0"
-              allow="encrypted-media"
-            ></iframe>
-          </SpotifyEmbedContainer>
-        </Section>
-      )}
-
       {/* ListGroup Section */}
       <Section $height="50vh">
-        {" "}
-        {/* Half viewport height */}
         <ListGroup onItemSelect={onItemSelect} />
       </Section>
     </DeityPageContainer>
@@ -70,11 +70,17 @@ export const DeityPage = ({
 };
 
 const DeityPageContainer = styled.div`
-  background: radial-gradient(circle at center, #980000, black);
+  background: ${props =>
+    // If color array is empty or undefined, default to black
+    !props.$color || props.$color.length === 0
+      ? 'radial-gradient(circle at center, #333333, black)'
+      : `radial-gradient(circle at center, ${props.$color[0]},  ${props.$color[1]})`
+  };
   overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
 `;
+
 
 const Section = styled.section`
   min-height: ${(props) => props.$height || "100vh"};
@@ -82,7 +88,7 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 0px;
   scroll-snap-align: start;
 `;
 
@@ -141,7 +147,18 @@ const SideImage = styled.img`
 
 const SpotifyEmbedContainer = styled.div`
   display: flex;
+  flex-direction: column;  // Add this to stack items vertically
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 20px;
+`;
+
+// Add this new styled component
+const SpotifyText = styled.p`
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: var(--bs-body-font-family);
 `;

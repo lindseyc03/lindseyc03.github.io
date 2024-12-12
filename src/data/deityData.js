@@ -5,9 +5,9 @@ export const deityData = {
       // Orisha details
       text: ["Eleguá (Elegguá) is a powerful Oricha who represents both the beginning and end of life, appearing as either a child or an old man. Known as the Lord of the Crossroads and one of the Warriors, he controls the opening and closing of paths in life and must be mentioned first in ceremonies to communicate with other Orichas. His sacred colors are red and black, his number is 3, and he is honored on Mondays and the 3rd day of each month, with feast days on January 6 and June 13. In Catholic syncretism, he is associated with the Child Jesus of Atocha, Saint Anthony of Padua, and Anima Sola. Eleguá is traditionally represented by a stone shaped into a head with cowrie shells for eyes and mouth, kept behind doors in a clay dish, and he favors offerings of children's toys, candy, cigars, cooking wine, and specific foods like toasted corn and smoked meats."
       ],
-      color: ["#980000"],
+      color: ["#980000", "black"],
       title: "Elegua - Lord of the Crossroads",
-      images:["src/assets/orishaImages/eleguaOne.jpg", "src/assets/orishaImages/elegueTwo.jpg", "src/assets/orishaImages/eleguaThree.jpg","src/assets/orishaImages/eleguaFour.jpg"],
+      images:["src/assets/orishaImages/eleguaOne.jpg", "src/assets/orishaImages/elegueTwo.jpg","src/assets/orishaImages/eleguaFour.jpg"],
       paragraphStyle: {
         fontSize: "1rem",
         color: "white",
@@ -16,34 +16,38 @@ export const deityData = {
         borderRadius: "10px",
         marginTop: "10px",
       },
-      spotifyTrackId:"4UkZUE81snxTUlVtFUxggM",
+      spotifyTrackId:"3DeL13PLmBIFORVV3riJHN",
     },
     Ogun: {
-      // Orisha details
-      text:["Ogún is the patron of all those who work with metal, mechanics, engineers, policemen, soldiers, surgeons.  He knows the secrets of the natural world and can perform powerful witchcraft when the situation calls for it.  He has a violent, brusque nature, but he also has a more peaceful side. He's good at farming, raising animals and hunting.  Ogún is also the owners of keys and locks, jails, and chains, and he's the foundation on which everything is built.  He oversees construction and labor, and is the master of the technology required for human progress and evolution in the material world. In traditional images of Ogún, he wears a close-fitting cap on his head, his chest is bare, he wears a hunter's pouch slung across a shoulder, and around his waist he wears a belt with a long fringe of mariwó (palm fibers), which protects him from evil.",
-        "Together with Eleguá and Ochosi, he protects the interior entryway of homes."
-      ],
-      color: ["#198754"],
-      title: "Lord of Metals",
-      images:["./assets/orishaImages/ogunOne.jpg"]
+      text: ["Ogún (Oggún) is the powerful Oricha who owns all metals and minerals, particularly iron. Known as the Lord of Metals and divine blacksmith, he is the patron of all who work with metal - mechanics, engineers, soldiers, and surgeons. He dwells in the forest and was tasked with clearing paths with his machete when the Orichas came to earth. His days are Tuesday and Wednesday, and the 4th day of each month, with his feast day on June 29. In Catholic syncretism, he is primarily associated with Saint Peter (due to Peter's ownership of keys), and also Saint Paul, Saint John the Baptist, Saint Michael, and Saint Rafael. Ogún is traditionally represented wearing a close-fitting cap, bare-chested, with a hunter's pouch and a belt of protective palm fibers (mariwó). He dwells in a three-legged metal cauldron alongside Ochosi, and together with Elegua and Osun, they form the Guerreros (Warriors). He favors offerings of roasted sweet potatoes, plantains, white beans, palm oil, and cigars, often left at railroad tracks, one of his symbols."],
+      color: ["#198754", "#0B4027"],
+      title: "Ogun - Lord of Iron and Technology",
+      images: ["src/assets/orishaImages/ogunOne.jpg", "src/assets/orishaImages/ogunTwo.jpg", "src/assets/orishaImages/ogunThree.jpg"],
+      paragraphStyle: {
+        fontSize: "1rem",
+        color: "white",
+        backgroundColor: "black",
+        padding: "5px",
+        borderRadius: "10px",
+        marginTop: "10px",
+      },
+      spotifyTrackId: "3LM95xNL0tgvWZGaURN7aW",
     },
+
     Ochosi: {
-      // Orisha details
-      text:["Patron of Hunters and Provider of Sustenance",
-        "As the patron of hunters, Ochosi is invoked by those seeking success in hunting and gathering. Devotees turn to Ochosi for assistance in matters related to sustenance and the provision of food. His keen senses and accuracy in hunting are seen as essential qualities that aid individuals in securing their basic needs.",
-        "Arbiter of Justice and Balance",
-        "Ochosi is revered as an enforcer of justice and balance, ensuring that divine order is maintained in the world. Devotees seek his guidance when faced with moral dilemmas or legal issues, believing that Ochosi’s swift decision-making and sense of fairness will lead to righteous outcomes. His energy is invoked to navigate complexities and bring about a sense of equilibrium in both personal and communal matters.",
-        "Cultural Significance and Worship",
-        "Ochosi’s influence is deeply woven into Yoruba culture, and his worship is expressed through rituals, ceremonies, and artistic representations. The annual festival dedicated to Ochosi, known as the Ochosi-Oshun Festival, is a time of vibrant celebrations, dance, and rituals to honor the Orisha’s role as a provider and enforcer of justice.",
-        "Ochosi in the Afro-Caribbean Diaspora",
-        "The worship of Ochosi has transcended geographical boundaries through the African diaspora, influencing traditions such as Santería, Candomblé, and Umbanda. In these syncretic practices, Ochosi is often associated with Catholic saints, such as Saint Norbert or Saint Sebastian. This syncretic blending highlights the adaptability of Yoruba spirituality in diverse cultural contexts.",
-        "Ochosi’s Relationship with Other Orishas",
-        "Ochosi shares symbiotic relationships with other Orishas, notably Shango, the Orisha of thunder and lightning, and Eshu, the trickster and messenger deity. Together, they form a trinity known as the “Ibèjì,” emphasizing the interconnectedness of their energies and the balance required for cosmic harmony.",
-        "Conclusion",
-        "Ochosi, the swift and precise Orisha of hunting and justice, plays a vital role in Yoruba spirituality. His prowess in hunting reflects the quest for sustenance, while his role as an arbiter of justice underscores the importance of maintaining balance in the moral and cosmic order. As individuals seek guidance in matters of justice, fairness, and the pursuit of their goals, Ochosi remains a vigilant and empowering presence, offering his blessings and guidance to those who invoke his name."],
-      color: [],
-      title: "The Divine Hunter",
-      images:["src/assets/orishaImages/BAM_9978.JPEG","src/assets/orishaImages/BAM_9978.JPEG","src/assets/orishaImages/BAM_9978.JPEG"]
+      text: ["Ochosi (Oshosi) is the great hunter and warrior Oricha who rules over justice and truth. Known as the Divine Hunter, he possesses shamanistic powers and is the patron of those who have legal troubles. His sacred days are Monday, Tuesday, or Wednesday, and the 4th day of each month, with his feast day on June 6. In Catholic syncretism, he is associated with Saint Norbert. Ochosi dwells in an iron cauldron with Ogun near the entryway of homes, and together with Elegua and Osun, they form the Warriors (Guerreros). He is traditionally represented by a crossbow and arrow, and his tools include three arrows, three hunting dogs, a small mirror, a stag's horn, and a fishing hook. He protects wildlife, especially hunting birds like falcons and hawks, and watches over those who work with dogs. His eleke (sacred necklace) consists of blue and yellow beads, sometimes incorporating green, coral, or amber. Those seeking justice must come to him with pure intentions, and his offerings are often left at courthouses and jails."],
+      color: ["#1E90FF", "#FFD700"],
+      title: "Ochosi - Divine Hunter and Bearer of Justice",
+      images: ["src/assets/orishaImages/ochosiOne.jpg", "src/assets/orishaImages/ochosiTwo.jpg", "src/assets/orishaImages/ochosiThree.jpg"],
+      paragraphStyle: {
+        fontSize: "1rem",
+        color: "white",
+        backgroundColor: "black",
+        padding: "5px",
+        borderRadius: "10px",
+        marginTop: "10px",
+      },
+      spotifyTrackId: "4WuSEZWscxI6YyTh0Vj4CJ"
     },
     Obatala: {
       // Orisha details
@@ -60,11 +64,18 @@ export const deityData = {
       images:["./assets/orishaImages/eleguaOne.jpg"]
     },
     Oshun: {
-      // Orisha details
-      text:[""],
-      color: ["#ffc107"],
-      title: "The Divine Hunter",
-      images:["./assets/orishaImages/eleguaOne.jpg"]
+      text: ["Oshún (Ochún) is the youngest and most beautiful of the Orichas, representing love, sweetness, and fresh flowing water. Known as the Queen of Rivers, she embodies feminine ideals through her seductive and sensual nature. She is a powerful deity who often succeeds where others fail, using her charm and intelligence. Her sacred colors are yellow and gold, her number is 5, and she is honored on Saturdays and the 5th day of each month, with her feast day on September 8. In Catholic syncretism, she is associated with Our Lady of Charity (La Virgen de la Caridad del Cobre), the patroness of Cuba. Oshún is traditionally depicted wearing flowing yellow satin dresses with jingling bells, adorned with gold jewelry, and she favors offerings of honey, perfumes (especially vetiver and sandalwood), mirrors, fans, sunflowers, and all manner of sweet things. Both the peacock and vulture are her sacred symbols, representing her beauty and bravery in flying to heaven to help solve the Orichas' problems on Earth. She rules over rivers and fresh waters, protecting against fertility issues and feminine health concerns."],      color: ["#DAA520", "#CD853F"],
+      title: "Oshun - Queen of Rivers and Love",
+      images: ["src/assets/orishaImages/oshunOne.jpg", "src/assets/orishaImages/oshunTwo.jpg", "src/assets/orishaImages/oshunThree.jpg"],
+      paragraphStyle: {
+        fontSize: "1rem",
+        color: "white",
+        backgroundColor: "black",
+        padding: "5px",
+        borderRadius: "10px",
+        marginTop: "10px",
+      },
+      spotifyTrackId: "7sHzf6x1qQn6WvCSGMLb6J",
     },
     Yemayá: {
       // Orisha details
